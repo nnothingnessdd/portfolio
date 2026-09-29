@@ -6,8 +6,26 @@
 
     <title>NOIR — пирсинг-студия</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+        :root {
+            --black: #080506;
+            --black-soft: #10090b;
+            --wine: #3d0715;
+            --burgundy: #5a0a1c;
+            --red: #741329;
+            --light: #eee7e4;
+            --muted: #a99c9d;
+            --line: rgba(255,255,255,0.10);
+        }
 
         * {
             margin: 0;
@@ -20,16 +38,79 @@
         }
 
         body {
-            background: #080606;
-            color: #f4eeee;
+            background: var(--black);
+            color: var(--light);
             font-family: 'Manrope', sans-serif;
-            line-height: 1.5;
         }
 
         a {
             color: inherit;
             text-decoration: none;
         }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            padding: 28px 5vw;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: .32em;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+
+            color: #c6b9bb;
+            font-size: 12px;
+        }
+
+        nav a {
+            transition: .25s;
+        }
+
+        nav a:hover {
+            color: #a93650;
+        }
+
+        .header-btn {
+            border: 1px solid rgba(255,255,255,.25);
+            padding: 11px 18px;
+
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+
+            transition: .25s;
+        }
+
+        .header-btn:hover {
+            background: var(--burgundy);
+            border-color: var(--burgundy);
+        }
+
 
         /* =========================
            HERO
@@ -38,22 +119,19 @@
         .hero {
             min-height: 100vh;
             position: relative;
+
             display: flex;
-            flex-direction: column;
+            align-items: center;
+
             overflow: hidden;
 
             background:
                 linear-gradient(
                     90deg,
-                    rgba(8, 6, 6, 0.96) 0%,
-                    rgba(8, 6, 6, 0.82) 38%,
-                    rgba(8, 6, 6, 0.35) 70%,
-                    rgba(8, 6, 6, 0.7) 100%
-                ),
-                linear-gradient(
-                    180deg,
-                    rgba(8, 6, 6, 0.15) 40%,
-                    #080606 100%
+                    #080506 0%,
+                    rgba(8,5,6,.96) 25%,
+                    rgba(8,5,6,.58) 58%,
+                    rgba(8,5,6,.78) 100%
                 ),
                 url("https://images.pexels.com/photos/7367854/pexels-photo-7367854.jpeg?cs=srgb&dl=pexels-shliftik-7367854.jpg&fm=jpg");
 
@@ -61,305 +139,473 @@
             background-position: center;
         }
 
-        .hero::after {
+        .hero::before {
             content: "";
+
             position: absolute;
-            inset: 0;
-            pointer-events: none;
+            width: 550px;
+            height: 550px;
 
-            background:
-                radial-gradient(
-                    circle at 72% 45%,
-                    rgba(116, 8, 25, 0.18),
-                    transparent 35%
-                );
+            right: -150px;
+            bottom: -200px;
+
+            background: rgba(72, 6, 22, .45);
+            filter: blur(100px);
         }
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            width: 100%;
-            padding: 28px 6vw;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-            z-index: 5;
-        }
-
-        .logo {
-            font-size: 18px;
-            letter-spacing: 0.28em;
-            font-weight: 700;
-        }
-
-        nav {
-            display: flex;
-            gap: 34px;
-            font-size: 13px;
-            color: #d4caca;
-        }
-
-        nav a {
-            transition: color 0.25s ease;
-        }
-
-        nav a:hover {
-            color: #b32642;
-        }
-
-        .header-button {
-            border: 1px solid rgba(255,255,255,0.25);
-            padding: 11px 18px;
-            font-size: 12px;
-            letter-spacing: 0.05em;
-            transition: 0.25s;
-        }
-
-        .header-button:hover {
-            background: #8f1832;
-            border-color: #8f1832;
-        }
-
-        /* =========================
-           HERO CONTENT
-        ========================= */
 
         .hero-content {
-            width: min(1100px, 88%);
-            margin: auto;
             position: relative;
-            z-index: 3;
-            padding-bottom: 80px;
+            z-index: 2;
+
+            width: min(1150px, 90%);
+            margin: 0 auto;
+
+            padding-top: 80px;
         }
 
         .eyebrow {
-            color: #b32642;
-            text-transform: uppercase;
-            letter-spacing: 0.24em;
-            font-size: 11px;
-            margin-bottom: 24px;
+            color: #a72a47;
+
+            font-size: 10px;
             font-weight: 700;
+
+            letter-spacing: .28em;
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
         }
 
         h1 {
-            max-width: 750px;
-            font-size: clamp(58px, 8vw, 112px);
-            line-height: 0.92;
-            letter-spacing: -0.055em;
-            font-weight: 600;
+            font-size: clamp(65px, 10vw, 135px);
+
+            line-height: .84;
+            letter-spacing: -.07em;
+
+            max-width: 800px;
         }
 
-        h1 em {
+        h1 span {
+            color: #7d142d;
             font-family: 'Playfair Display', serif;
+            font-style: italic;
             font-weight: 500;
-            color: #b32642;
         }
 
-        .hero-description {
-            max-width: 460px;
-            margin-top: 32px;
-            color: #c7bebe;
-            font-size: 15px;
+        .hero-text {
+            max-width: 430px;
+
+            margin-top: 38px;
+
+            color: #b9adaf;
+            font-size: 14px;
+            line-height: 1.8;
         }
 
         .hero-actions {
-            margin-top: 38px;
             display: flex;
-            gap: 14px;
             align-items: center;
+            gap: 14px;
+
+            margin-top: 35px;
         }
 
-        .primary-button {
-            background: #941b36;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
             padding: 15px 25px;
-            font-size: 13px;
+
+            background: var(--burgundy);
+
+            font-size: 12px;
             font-weight: 600;
-            transition: 0.25s;
+
+            transition: .25s;
         }
 
-        .primary-button:hover {
-            background: #b32642;
+        .btn:hover {
+            background: #71152a;
             transform: translateY(-2px);
         }
 
-        .secondary-button {
-            padding: 14px 22px;
-            border: 1px solid rgba(255,255,255,0.2);
-            font-size: 13px;
+        .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,.22);
         }
 
-        .secondary-button:hover {
-            border-color: #b32642;
-            color: #d95169;
+        .btn-outline:hover {
+            border-color: #71152a;
+            background: transparent;
         }
 
-        .scroll {
+        .hero-bottom {
             position: absolute;
-            bottom: 30px;
-            left: 6vw;
-            z-index: 5;
-            color: #766c6c;
+            left: 5vw;
+            bottom: 28px;
+
+            color: #74696b;
+
             font-size: 10px;
-            letter-spacing: 0.2em;
+            letter-spacing: .18em;
             text-transform: uppercase;
         }
 
-        /* =========================
-           GENERAL
-        ========================= */
-
-        section {
-            padding: 120px 6vw;
-        }
-
-        .section-label {
-            color: #a52840;
-            text-transform: uppercase;
-            font-size: 10px;
-            letter-spacing: 0.22em;
-            font-weight: 700;
-            margin-bottom: 18px;
-        }
-
-        .section-title {
-            font-size: clamp(38px, 5vw, 68px);
-            line-height: 1;
-            letter-spacing: -0.045em;
-            max-width: 700px;
-        }
-
-        .section-title em {
-            font-family: 'Playfair Display', serif;
-            font-weight: 500;
-        }
 
         /* =========================
-           ABOUT
+           INTRO
         ========================= */
 
-        .about {
-            background: #0c090a;
+        .intro {
+            background: var(--black-soft);
+            padding: 120px 5vw;
         }
 
-        .about-grid {
-            max-width: 1100px;
-            margin: 0 auto;
+        .intro-grid {
+            width: min(1150px, 90%);
+            margin: auto;
+
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 100px;
+
+            gap: 90px;
+
             align-items: center;
         }
 
-        .about-text {
-            color: #a99d9d;
-            font-size: 16px;
-            max-width: 480px;
+        .label {
+            color: #84203a;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: .24em;
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
         }
 
-        .about-text p + p {
-            margin-top: 20px;
+        .title {
+            font-size: clamp(40px, 5vw, 68px);
+
+            line-height: .98;
+            letter-spacing: -.05em;
         }
 
-        .about-number {
-            margin-top: 45px;
-            display: flex;
-            gap: 50px;
-        }
+        .title em {
+            color: #72152c;
 
-        .number strong {
-            display: block;
-            font-size: 34px;
-            color: #eee4e4;
+            font-family: 'Playfair Display', serif;
             font-weight: 500;
         }
 
-        .number span {
-            color: #736969;
-            font-size: 11px;
+        .intro-copy {
+            margin-top: 30px;
+
+            color: #a99d9e;
+
+            font-size: 14px;
+            line-height: 1.85;
+
+            max-width: 500px;
         }
 
-        .quote {
-            border-left: 1px solid #7d1a30;
-            padding-left: 28px;
-            color: #d7cdcd;
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            line-height: 1.25;
+        .intro-copy p + p {
+            margin-top: 17px;
         }
+
+        .intro-photo {
+            height: 560px;
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .intro-photo img {
+            height: 100%;
+            object-fit: cover;
+
+            filter: saturate(.75) contrast(1.1);
+        }
+
+        .photo-caption {
+            position: absolute;
+
+            left: 20px;
+            bottom: 20px;
+
+            background: rgba(8,5,6,.75);
+
+            padding: 10px 13px;
+
+            color: #c8babc;
+
+            font-size: 9px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
 
         /* =========================
            SERVICES
         ========================= */
 
         .services {
-            background: #090707;
+            padding: 120px 5vw;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #10090b,
+                    #080506
+                );
+        }
+
+        .services-head {
+            width: min(1150px, 90%);
+            margin: auto;
         }
 
         .services-list {
-            max-width: 1100px;
-            margin: 70px auto 0;
-            border-top: 1px solid #241d1e;
+            width: min(1150px, 90%);
+            margin: 65px auto 0;
+
+            border-top: 1px solid var(--line);
         }
 
         .service {
             display: grid;
-            grid-template-columns: 70px 1fr auto;
-            gap: 30px;
+
+            grid-template-columns: 70px 1fr 130px;
+
+            gap: 25px;
+
             align-items: center;
+
             padding: 28px 0;
-            border-bottom: 1px solid #241d1e;
-            transition: 0.25s;
+
+            border-bottom: 1px solid var(--line);
+
+            transition: .25s;
         }
 
         .service:hover {
-            padding-left: 12px;
-            border-color: #691326;
+            padding-left: 15px;
+
+            background: linear-gradient(
+                90deg,
+                rgba(77,8,25,.18),
+                transparent
+            );
         }
 
-        .service-number {
-            color: #743044;
-            font-size: 12px;
+        .service-num {
+            color: #693043;
+            font-size: 11px;
         }
 
         .service-name {
-            font-size: 20px;
+            font-size: 19px;
+            font-weight: 500;
         }
 
-        .service-description {
-            color: #716666;
-            font-size: 12px;
+        .service-desc {
             margin-top: 5px;
+
+            color: #766a6c;
+
+            font-size: 11px;
         }
 
         .service-price {
-            color: #c73a55;
-            font-size: 14px;
+            color: #9a334d;
+            font-size: 13px;
+            text-align: right;
         }
+
+
+        /* =========================
+           IMAGE BREAK
+        ========================= */
+
+        .image-break {
+            height: 580px;
+
+            position: relative;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(8,5,6,.9),
+                    rgba(8,5,6,.15),
+                    rgba(8,5,6,.72)
+                ),
+                url("https://images.pexels.com/photos/7367926/pexels-photo-7367926.jpeg?cs=srgb&dl=pexels-shliftik-7367926.jpg&fm=jpg");
+
+            background-size: cover;
+            background-position: center 45%;
+
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .image-break-content {
+            width: min(1150px, 90%);
+            margin: auto;
+
+            padding-bottom: 70px;
+        }
+
+        .image-break h2 {
+            max-width: 650px;
+
+            font-size: clamp(45px, 6vw, 82px);
+
+            line-height: .92;
+            letter-spacing: -.06em;
+        }
+
+        .image-break h2 em {
+            color: #8b1c38;
+
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+        }
+
+
+        /* =========================
+           JEWELRY
+        ========================= */
+
+        .jewelry {
+            padding: 120px 5vw;
+            background: #0b0709;
+        }
+
+        .jewelry-grid {
+            width: min(1150px, 90%);
+            margin: 65px auto 0;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 12px;
+        }
+
+        .jewelry-card {
+            min-height: 380px;
+
+            padding: 35px;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #32101a,
+                    #0d0809 70%
+                );
+
+            border: 1px solid rgba(255,255,255,.06);
+        }
+
+        .jewelry-card:nth-child(2) {
+            background:
+                linear-gradient(
+                    145deg,
+                    #4a0d1b,
+                    #100708 75%
+                );
+        }
+
+        .jewelry-card:nth-child(3) {
+            background:
+                linear-gradient(
+                    145deg,
+                    #240b13,
+                    #080506 75%
+                );
+        }
+
+        .jewelry-card h3 {
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .jewelry-card p {
+            margin-top: 15px;
+
+            max-width: 220px;
+
+            color: #9d8d90;
+
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .jewelry-circle {
+            position: absolute;
+
+            right: -50px;
+            bottom: -70px;
+
+            width: 230px;
+            height: 230px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(145,35,60,.55);
+
+            box-shadow:
+                0 0 80px rgba(99,12,34,.25);
+        }
+
+        .jewelry-circle::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 35px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(145,35,60,.35);
+        }
+
 
         /* =========================
            GALLERY
         ========================= */
 
         .gallery {
-            background: #0c090a;
+            padding: 120px 5vw;
+            background: var(--black);
+        }
+
+        .gallery-head {
+            width: min(1150px, 90%);
+            margin: auto;
         }
 
         .gallery-grid {
-            max-width: 1100px;
-            margin: 65px auto 0;
+            width: min(1150px, 90%);
+            margin: 60px auto 0;
+
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr 0.8fr;
-            grid-template-rows: 280px 280px;
+
+            grid-template-columns: 1.3fr .7fr .7fr;
+
+            grid-template-rows: 270px 270px;
+
             gap: 12px;
         }
 
         .gallery-item {
             overflow: hidden;
             position: relative;
-            background: #171011;
+
+            background: #15090c;
         }
 
         .gallery-item:first-child {
@@ -367,83 +613,104 @@
         }
 
         .gallery-item img {
-            width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
-            filter: saturate(0.8) contrast(1.05);
+
+            filter: saturate(.7) contrast(1.12);
+
+            transition: .6s;
         }
 
         .gallery-item:hover img {
             transform: scale(1.05);
+            filter: saturate(.9) contrast(1.1);
         }
 
-        .gallery-placeholder {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #493e3f;
-            font-size: 11px;
+        .gallery-caption {
+            position: absolute;
+
+            left: 15px;
+            bottom: 15px;
+
+            padding: 8px 10px;
+
+            background: rgba(8,5,6,.7);
+
+            color: #cbbfc1;
+
+            font-size: 9px;
+            letter-spacing: .1em;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
         }
+
 
         /* =========================
-           CTA
+           BOOKING
         ========================= */
 
-        .contact {
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        .booking {
+            padding: 140px 5vw;
 
             background:
                 radial-gradient(
-                    circle at center,
-                    rgba(105, 12, 31, 0.25),
-                    transparent 45%
+                    circle at 50% 40%,
+                    rgba(69,7,25,.7),
+                    transparent 50%
                 ),
-                #080606;
+                #080506;
+
+            text-align: center;
         }
 
-        .contact-inner {
-            max-width: 700px;
+        .booking-inner {
+            width: min(750px, 90%);
+            margin: auto;
         }
 
-        .contact h2 {
+        .booking h2 {
             font-size: clamp(48px, 7vw, 92px);
-            line-height: 0.95;
-            letter-spacing: -0.05em;
+
+            line-height: .9;
+            letter-spacing: -.06em;
         }
 
-        .contact h2 em {
-            color: #a5213c;
+        .booking h2 em {
+            color: #7b1730;
+
             font-family: 'Playfair Display', serif;
             font-weight: 500;
         }
 
-        .contact p {
-            margin: 28px auto 35px;
-            max-width: 430px;
-            color: #938686;
-            font-size: 14px;
+        .booking p {
+            max-width: 470px;
+
+            margin: 30px auto;
+
+            color: #a99b9d;
+
+            font-size: 13px;
+            line-height: 1.8;
         }
+
 
         /* =========================
            FOOTER
         ========================= */
 
         footer {
-            border-top: 1px solid #211a1b;
-            padding: 25px 6vw;
+            padding: 25px 5vw;
+
+            border-top: 1px solid var(--line);
+
             display: flex;
             justify-content: space-between;
-            color: #625858;
-            font-size: 11px;
+
+            color: #675c5e;
+
+            font-size: 10px;
+            letter-spacing: .1em;
         }
+
 
         /* =========================
            MOBILE
@@ -451,59 +718,61 @@
 
         @media (max-width: 800px) {
 
-            header {
-                padding: 22px 6vw;
-            }
-
             nav {
                 display: none;
             }
 
-            .header-button {
-                padding: 9px 13px;
+            header {
+                padding: 22px 6vw;
             }
 
             .hero {
-                background-position: 67% center;
+                min-height: 850px;
+
+                background-position: 62% center;
             }
 
             .hero-content {
-                padding-bottom: 70px;
+                width: 88%;
             }
 
             h1 {
-                font-size: clamp(54px, 15vw, 90px);
+                font-size: 68px;
             }
 
-            .hero-description {
-                font-size: 14px;
-            }
-
-            section {
-                padding: 85px 6vw;
-            }
-
-            .about-grid {
+            .intro-grid {
                 grid-template-columns: 1fr;
-                gap: 55px;
+                gap: 50px;
             }
 
-            .quote {
-                font-size: 23px;
+            .intro-photo {
+                height: 430px;
             }
 
             .service {
                 grid-template-columns: 35px 1fr;
-                gap: 15px;
             }
 
             .service-price {
                 grid-column: 2;
+                text-align: left;
+            }
+
+            .image-break {
+                height: 480px;
+            }
+
+            .jewelry-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .jewelry-card {
+                min-height: 300px;
             }
 
             .gallery-grid {
                 grid-template-columns: 1fr 1fr;
-                grid-template-rows: 250px 180px 180px;
+                grid-template-rows: 260px 180px 180px;
             }
 
             .gallery-item:first-child {
@@ -516,116 +785,125 @@
                 gap: 8px;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <main class="hero" id="top">
 
-        <header>
-            <a href="#top" class="logo">NOIR</a>
+    <!-- HEADER -->
 
-            <nav>
-                <a href="#about">О студии</a>
-                <a href="#services">Услуги</a>
-                <a href="#gallery">Работы</a>
-                <a href="#contact">Контакты</a>
-            </nav>
+    <header>
 
-            <a href="#contact" class="header-button">
-                Записаться
-            </a>
-        </header>
+        <a href="#top" class="logo">
+            NOIR
+        </a>
+
+        <nav>
+            <a href="#about">О студии</a>
+            <a href="#services">Услуги</a>
+            <a href="#jewelry">Украшения</a>
+            <a href="#gallery">Галерея</a>
+        </nav>
+
+        <a href="#booking" class="header-btn">
+            Записаться
+        </a>
+
+    </header>
+
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="top">
 
         <div class="hero-content">
 
             <div class="eyebrow">
-                Piercing studio
+                piercing studio / moscow
             </div>
 
             <h1>
-                Украшай<br>
-                <em>себя.</em>
+                Носи<br>
+                <span>своё.</span>
             </h1>
 
-            <p class="hero-description">
-                Пирсинг, который становится частью твоего образа.
-                Аккуратная работа, стерильность и украшения,
-                которые хочется носить.
+            <p class="hero-text">
+                Пирсинг как часть характера.
+                Аккуратные проколы, качественные украшения
+                и спокойная атмосфера без лишнего пафоса.
             </p>
 
             <div class="hero-actions">
-                <a href="#contact" class="primary-button">
+
+                <a href="#booking" class="btn">
                     Записаться
                 </a>
 
-                <a href="#services" class="secondary-button">
-                    Смотреть услуги
+                <a href="#services" class="btn btn-outline">
+                    Услуги
                 </a>
+
             </div>
 
         </div>
 
-        <div class="scroll">
-            ↓ scroll
+        <div class="hero-bottom">
+            scroll ↓
         </div>
 
-    </main>
+    </section>
+
 
 
     <!-- ABOUT -->
 
-    <section class="about" id="about">
+    <section class="intro" id="about">
 
-        <div class="about-grid">
+        <div class="intro-grid">
 
             <div>
-                <div class="section-label">
-                    О студии
+
+                <div class="label">
+                    о студии
                 </div>
 
-                <h2 class="section-title">
-                    Красиво.<br>
-                    <em>Спокойно.</em><br>
-                    Без лишнего.
+                <h2 class="title">
+                    Место для<br>
+                    <em>твоего</em> стиля.
                 </h2>
 
-                <div class="about-number">
+                <div class="intro-copy">
 
-                    <div class="number">
-                        <strong>04+</strong>
-                        <span>года работы</span>
-                    </div>
+                    <p>
+                        Здесь не торопят и не навязывают.
+                        Сначала обсуждаем идею, расположение
+                        и украшение — потом делаем прокол.
+                    </p>
 
-                    <div class="number">
-                        <strong>1000+</strong>
-                        <span>процедур</span>
-                    </div>
+                    <p>
+                        Важны стерильность, точность работы
+                        и то, как украшение будет выглядеть
+                        именно на тебе.
+                    </p>
 
                 </div>
+
             </div>
 
-            <div class="about-text">
 
-                <p>
-                    Мы создаём пирсинг, который подходит именно тебе —
-                    от первого прокола до сложных композиций.
-                </p>
+            <div class="intro-photo">
 
-                <p>
-                    Перед процедурой обсуждаем расположение,
-                    украшение и особенности заживления.
-                </p>
+                <img
+                    src="https://images.pexels.com/photos/7367926/pexels-photo-7367926.jpeg?cs=srgb&dl=pexels-shliftik-7367926.jpg&fm=jpg"
+                    alt="Красная лилия"
+                >
 
-                <p>
-                    Никакой спешки. Только аккуратная работа
-                    и внимание к деталям.
-                </p>
-
-                <div class="quote">
-                    «Твой стиль не обязан быть похож
-                    на чей-то ещё.»
+                <div class="photo-caption">
+                    detail / attitude
                 </div>
 
             </div>
@@ -635,45 +913,58 @@
     </section>
 
 
+
     <!-- SERVICES -->
 
     <section class="services" id="services">
 
-        <div class="section-label">
-            Услуги
+        <div class="services-head">
+
+            <div class="label">
+                услуги
+            </div>
+
+            <h2 class="title">
+                Выбери свой<br>
+                <em>акцент.</em>
+            </h2>
+
         </div>
 
-        <h2 class="section-title">
-            Выбери свой <em>акцент.</em>
-        </h2>
 
         <div class="services-list">
 
             <div class="service">
-                <div class="service-number">01</div>
+
+                <div class="service-num">01</div>
 
                 <div>
                     <div class="service-name">
-                        Прокол уха
+                        Пирсинг уха
                     </div>
-                    <div class="service-description">
-                        Мочка, хеликс, трагус и другие варианты
+
+                    <div class="service-desc">
+                        Мочка, хеликс, трагус и другие зоны
                     </div>
                 </div>
 
                 <div class="service-price">
                     от 1 500 ₽
                 </div>
+
             </div>
 
+
             <div class="service">
-                <div class="service-number">02</div>
+
+                <div class="service-num">02</div>
 
                 <div>
                     <div class="service-name">
                         Пирсинг лица
                     </div>
-                    <div class="service-description">
+
+                    <div class="service-desc">
                         Нос, бровь, губа
                     </div>
                 </div>
@@ -681,16 +972,20 @@
                 <div class="service-price">
                     от 2 000 ₽
                 </div>
+
             </div>
 
+
             <div class="service">
-                <div class="service-number">03</div>
+
+                <div class="service-num">03</div>
 
                 <div>
                     <div class="service-name">
                         Пирсинг тела
                     </div>
-                    <div class="service-description">
+
+                    <div class="service-desc">
                         Пупок и другие зоны
                     </div>
                 </div>
@@ -698,16 +993,20 @@
                 <div class="service-price">
                     от 2 500 ₽
                 </div>
+
             </div>
 
+
             <div class="service">
-                <div class="service-number">04</div>
+
+                <div class="service-num">04</div>
 
                 <div>
                     <div class="service-name">
                         Замена украшения
                     </div>
-                    <div class="service-description">
+
+                    <div class="service-desc">
                         Подбор и установка нового украшения
                     </div>
                 </div>
@@ -715,6 +1014,7 @@
                 <div class="service-price">
                     от 700 ₽
                 </div>
+
             </div>
 
         </div>
@@ -722,17 +1022,114 @@
     </section>
 
 
+
+    <!-- BIG IMAGE -->
+
+    <section class="image-break">
+
+        <div class="image-break-content">
+
+            <div class="label">
+                украшения
+            </div>
+
+            <h2>
+                Маленькая деталь.<br>
+                <em>Большое впечатление.</em>
+            </h2>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- JEWELRY -->
+
+    <section class="jewelry" id="jewelry">
+
+        <div class="label">
+            украшения
+        </div>
+
+        <h2 class="title">
+            Подбери то,<br>
+            что <em>останется.</em>
+        </h2>
+
+
+        <div class="jewelry-grid">
+
+            <div class="jewelry-card">
+
+                <h3>
+                    Минимализм
+                </h3>
+
+                <p>
+                    Маленькие серьги, лаконичные кольца
+                    и аккуратные детали на каждый день.
+                </p>
+
+                <div class="jewelry-circle"></div>
+
+            </div>
+
+
+            <div class="jewelry-card">
+
+                <h3>
+                    Акцент
+                </h3>
+
+                <p>
+                    Украшения, которые становятся
+                    главным элементом образа.
+                </p>
+
+                <div class="jewelry-circle"></div>
+
+            </div>
+
+
+            <div class="jewelry-card">
+
+                <h3>
+                    Композиция
+                </h3>
+
+                <p>
+                    Несколько проколов, собранных
+                    в одну гармоничную историю.
+                </p>
+
+                <div class="jewelry-circle"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
     <!-- GALLERY -->
 
     <section class="gallery" id="gallery">
 
-        <div class="section-label">
-            Атмосфера
+        <div class="gallery-head">
+
+            <div class="label">
+                атмосфера
+            </div>
+
+            <h2 class="title">
+                В деталях<br>
+                всё <em>чувствуется.</em>
+            </h2>
+
         </div>
 
-        <h2 class="section-title">
-            Детали имеют <em>значение.</em>
-        </h2>
 
         <div class="gallery-grid">
 
@@ -740,33 +1137,53 @@
 
                 <img
                     src="https://images.pexels.com/photos/7367854/pexels-photo-7367854.jpeg?cs=srgb&dl=pexels-shliftik-7367854.jpg&fm=jpg"
+                    alt="Красный цветок"
+                >
+
+                <div class="gallery-caption">
+                    atmosphere
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.pexels.com/photos/7367926/pexels-photo-7367926.jpeg?cs=srgb&dl=pexels-shliftik-7367926.jpg&fm=jpg"
+                    alt="Красная тигровая лилия"
+                >
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.pexels.com/photos/35596079/pexels-photo-35596079.jpeg?cs=srgb&dl=pexels-ruslan-sikunov-1921197-35596079.jpg&fm=jpg"
                     alt="Красный цветок на тёмном фоне"
                 >
 
             </div>
 
-            <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    фото украшений
-                </div>
-            </div>
 
             <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    фото студии
-                </div>
+
+                <img
+                    src="https://images.pexels.com/photos/7367854/pexels-photo-7367854.jpeg?cs=srgb&dl=pexels-shliftik-7367854.jpg&fm=jpg"
+                    alt="Красная калла"
+                >
+
             </div>
 
-            <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    фото работ
-                </div>
-            </div>
 
             <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    фото деталей
-                </div>
+
+                <img
+                    src="https://images.pexels.com/photos/7367926/pexels-photo-7367926.jpeg?cs=srgb&dl=pexels-shliftik-7367926.jpg&fm=jpg"
+                    alt="Лилия"
+                >
+
             </div>
 
         </div>
@@ -774,27 +1191,29 @@
     </section>
 
 
-    <!-- CONTACT -->
 
-    <section class="contact" id="contact">
+    <!-- BOOKING -->
 
-        <div class="contact-inner">
+    <section class="booking" id="booking">
 
-            <div class="section-label">
-                Запись
+        <div class="booking-inner">
+
+            <div class="label">
+                запись
             </div>
 
             <h2>
-                Готова к<br>
-                <em>новому акценту?</em>
+                Готова<br>
+                к <em>новому?</em>
             </h2>
 
             <p>
                 Напиши нам, расскажи, какой пирсинг хочешь,
-                и мы подберём подходящий вариант.
+                и мы обсудим подходящее расположение
+                и украшение.
             </p>
 
-            <a href="#" class="primary-button">
+            <a href="#" class="btn">
                 Написать в Telegram
             </a>
 
@@ -803,10 +1222,21 @@
     </section>
 
 
+
+    <!-- FOOTER -->
+
     <footer>
-        <span>NOIR PIERCING</span>
-        <span>© 2026</span>
+
+        <span>
+            NOIR PIERCING
+        </span>
+
+        <span>
+            © 2026
+        </span>
+
     </footer>
+
 
 </body>
 </html>
