@@ -1,969 +1,1177 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Веб-разработка — сайты и лендинги</title>
-
-    <meta
-        name="description"
-        content="Создаю современные сайты и лендинги для небольших бизнесов, специалистов и проектов."
-    >
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --bg: #f4f1eb;
-            --text: #171717;
-            --muted: #77736c;
-            --card: #ffffff;
-            --border: #dedad2;
-            --accent: #ff6847;
-            --dark: #171717;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family:
-                Inter,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Arial,
-                sans-serif;
-
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.5;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            width: min(1100px, calc(100% - 40px));
-            margin: 0 auto;
-        }
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            padding-top: 24px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 18px 0;
-        }
-
-        .logo {
-            font-size: 19px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-
-            font-size: 14px;
-            color: var(--muted);
-        }
-
-        .nav-links a {
-            transition: color 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            position: relative;
-
-            padding: 120px 0 110px;
-
-            max-width: 900px;
-        }
-
-        .small-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-
-            margin-bottom: 25px;
-
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--muted);
-        }
-
-        .small-label::before {
-            content: "";
-            width: 8px;
-            height: 8px;
-
-            background: var(--accent);
-            border-radius: 50%;
-        }
-
-        h1 {
-            font-size: clamp(48px, 7vw, 82px);
-            line-height: 0.98;
-            letter-spacing: -4px;
-
-            max-width: 900px;
-
-            margin-bottom: 30px;
-        }
-
-        .accent {
-            color: var(--accent);
-        }
-
-        .hero-text {
-            max-width: 600px;
-
-            font-size: 19px;
-            color: var(--muted);
-
-            margin-bottom: 35px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 14px 20px;
-
-            border-radius: 10px;
-
-            font-size: 14px;
-            font-weight: 700;
-
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease;
-        }
-
-        .button:hover {
-            transform: translateY(-2px);
-        }
-
-        .button-dark {
-            background: var(--dark);
-            color: white;
-        }
-
-        .button-light {
-            border: 1px solid var(--border);
-            background: transparent;
-        }
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        section {
-            padding: 95px 0;
-
-            border-top: 1px solid var(--border);
-        }
-
-        .section-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-
-            gap: 30px;
-
-            margin-bottom: 45px;
-        }
-
-        .section-label {
-            color: var(--accent);
-
-            font-size: 12px;
-            font-weight: 800;
-
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-
-            margin-bottom: 9px;
-        }
-
-        h2 {
-            font-size: clamp(34px, 5vw, 52px);
-            line-height: 1;
-            letter-spacing: -2px;
-        }
-
-        .section-description {
-            max-width: 420px;
-
-            color: var(--muted);
-            font-size: 15px;
-        }
-
-        /* =========================
-           PROJECTS
-        ========================= */
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
-        }
-
-        .project {
-            position: relative;
-
-            overflow: hidden;
-
-            min-height: 390px;
-
-            padding: 30px;
-
-            border: 1px solid var(--border);
-            border-radius: 18px;
-
-            background: var(--card);
-
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-        .project:hover {
-            transform: translateY(-5px);
-
-            box-shadow:
-                0 18px 45px rgba(30, 25, 20, 0.08);
-        }
-
-        .project:nth-child(3) {
-            grid-column: span 2;
-            min-height: 330px;
-        }
-
-        .project-number {
-            color: #99948b;
-
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        .project-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .project h3 {
-            font-size: 30px;
-            letter-spacing: -1px;
-
-            margin-bottom: 10px;
-        }
-
-        .project p {
-            max-width: 470px;
-
-            color: var(--muted);
-            font-size: 15px;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-
-            margin-top: 22px;
-
-            font-size: 14px;
-            font-weight: 800;
-        }
-
-        .project-link span {
-            transition: transform 0.2s ease;
-        }
-
-        .project:hover .project-link span {
-            transform: translateX(4px);
-        }
-
-        /* decorative project areas */
-
-        .project-visual {
-            position: absolute;
-
-            right: -30px;
-            bottom: -35px;
-
-            width: 55%;
-            height: 58%;
-
-            border-radius: 18px 0 0 0;
-
-            transform: rotate(-4deg);
-
-            opacity: 0.9;
-        }
-
-        .barbershop {
-            background:
-                linear-gradient(
-                    135deg,
-                    #191919,
-                    #4c4038
-                );
-        }
-
-        .nutrition {
-            background:
-                linear-gradient(
-                    135deg,
-                    #dce6d7,
-                    #9db29a
-                );
-        }
-
-        .third-project {
-            background:
-                linear-gradient(
-                    135deg,
-                    #e7d9ca,
-                    #c49e7d
-                );
-        }
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-
-            gap: 70px;
-        }
-
-        .about-text {
-            font-size: 19px;
-            line-height: 1.7;
-        }
-
-        .about-text p + p {
-            margin-top: 18px;
-        }
-
-        .about-note {
-            padding: 28px;
-
-            border-radius: 16px;
-
-            background: var(--dark);
-            color: white;
-        }
-
-        .about-note strong {
-            display: block;
-
-            font-size: 22px;
-
-            margin-bottom: 10px;
-        }
-
-        .about-note p {
-            color: #bdbdbd;
-            font-size: 14px;
-        }
-
-        /* =========================
-           SERVICES
-        ========================= */
-
-        .services {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 18px;
-        }
-
-        .service {
-            padding: 28px;
-
-            background: transparent;
-
-            border: 1px solid var(--border);
-            border-radius: 15px;
-        }
-
-        .service-number {
-            color: var(--accent);
-
-            font-size: 12px;
-            font-weight: 800;
-        }
-
-        .service h3 {
-            font-size: 21px;
-
-            margin: 28px 0 10px;
-        }
-
-        .service p {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact {
-            padding: 110px 0;
-
-            text-align: center;
-        }
-
-        .contact h2 {
-            max-width: 700px;
-
-            margin: 0 auto 20px;
-        }
-
-        .contact p {
-            max-width: 520px;
-
-            margin: 0 auto 30px;
-
-            color: var(--muted);
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            padding: 25px 0;
-
-            border-top: 1px solid var(--border);
-
-            display: flex;
-            justify-content: space-between;
-
-            color: var(--muted);
-
-            font-size: 13px;
-        }
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 760px) {
-
-            .container {
-                width: min(100% - 28px, 1100px);
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                padding: 80px 0 75px;
-            }
-
-            h1 {
-                font-size: 48px;
-                letter-spacing: -2.5px;
-            }
-
-            .hero-text {
-                font-size: 17px;
-            }
-
-            section {
-                padding: 70px 0;
-            }
-
-            .section-top {
-                display: block;
-            }
-
-            .section-description {
-                margin-top: 15px;
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            .project,
-            .project:nth-child(3) {
-                grid-column: span 1;
-
-                min-height: 350px;
-            }
-
-            .about {
-                grid-template-columns: 1fr;
-
-                gap: 35px;
-            }
-
-            .services {
-                grid-template-columns: 1fr;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 8px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Сайты и лендинги — веб-разработка</title>
+  <meta name="description" content="Создаю современные сайты и лендинги для небольших бизнесов, специалистов и личных проектов.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #e9eee9;
+      --bg-dark: #dfe7e2;
+      --card: #f0f3ef;
+      --green: #286b63;
+      --green-dark: #20564f;
+      --green-light: #8eafa6;
+      --text: #263b37;
+      --muted: #71807c;
+      --line: #ccd7d2;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+
+    header {
+      padding: 25px 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-mark {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      margin-left: 3px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    nav a {
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--green);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 85px 0 115px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 70px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 25px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    .eyebrow-line {
+      width: 34px;
+      height: 1px;
+      background: var(--green);
+    }
+
+    h1 {
+      max-width: 780px;
+      font-size: clamp(52px, 7vw, 88px);
+      line-height: 0.97;
+      letter-spacing: -5px;
+      font-weight: 700;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .hero-description {
+      max-width: 470px;
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 10px;
+      background: var(--green);
+      color: #eef2ee;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .hero-link {
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* HERO VISUAL */
+
+    .hero-visual {
+      position: relative;
+      min-height: 330px;
+      padding: 24px;
+      border-radius: 28px;
+      background: var(--green);
+      overflow: hidden;
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      top: -70px;
+      right: -50px;
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 50%;
+      bottom: -50px;
+      left: -40px;
+    }
+
+    .visual-window {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      min-height: 282px;
+      padding: 18px;
+      border-radius: 18px;
+      background: #dce6e0;
+    }
+
+    .window-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #c5d1ca;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .window-dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #8da59d;
+    }
+
+    .window-number {
+      color: #71827c;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .window-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 220px;
+    }
+
+    .window-small {
+      width: 70px;
+      height: 7px;
+      margin-bottom: 14px;
+      border-radius: 5px;
+      background: var(--green);
+    }
+
+    .window-title {
+      max-width: 250px;
+      color: #31534c;
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+    }
+
+    .window-line {
+      width: 150px;
+      height: 6px;
+      margin-top: 20px;
+      border-radius: 4px;
+      background: #a7b9b1;
+    }
+
+    /* SECTION */
+
+    section {
+      padding: 105px 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 45px;
+      gap: 30px;
+    }
+
+    .section-label {
+      margin-bottom: 12px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    h2 {
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -3px;
+    }
+
+    .section-note {
+      max-width: 310px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .project {
+      position: relative;
+      min-height: 420px;
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--card);
+      overflow: hidden;
+      transition: transform 0.25s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+    }
+
+    .project.large {
+      grid-column: span 2;
+      min-height: 470px;
+    }
+
+    .project-info {
+      position: relative;
+      z-index: 3;
+    }
+
+    .project-number {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .project h3 {
+      margin-top: 10px;
+      font-size: 27px;
+      letter-spacing: -1px;
+    }
+
+    .project p {
+      max-width: 350px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .project-preview {
+      position: absolute;
+      right: 25px;
+      bottom: -40px;
+      width: 72%;
+      height: 265px;
+      padding: 18px;
+      border-radius: 16px 16px 0 0;
+      background: #cddbd4;
+      box-shadow: 0 20px 40px rgba(38, 59, 55, 0.08);
+    }
+
+    .project.large .project-preview {
+      width: 78%;
+      height: 300px;
+    }
+
+    .preview-top {
+      height: 26px;
+      border-bottom: 1px solid #b9c9c1;
+    }
+
+    .preview-body {
+      display: grid;
+      grid-template-columns: 1fr 0.65fr;
+      gap: 15px;
+      padding-top: 25px;
+    }
+
+    .preview-title {
+      width: 85%;
+      height: 38px;
+      border-radius: 6px;
+      background: var(--green);
+    }
+
+    .preview-text {
+      width: 70%;
+      height: 8px;
+      margin-top: 14px;
+      border-radius: 5px;
+      background: #91aaa1;
+    }
+
+    .preview-box {
+      height: 115px;
+      border-radius: 10px;
+      background: #9fb8ae;
+    }
+
+    .preview-box.dark {
+      background: var(--green);
+    }
+
+    .preview-footer {
+      width: 42%;
+      height: 8px;
+      margin-top: 25px;
+      border-radius: 5px;
+      background: #8ba49b;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-big {
+      font-size: 28px;
+      line-height: 1.35;
+      letter-spacing: -1px;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .about-text p + p {
+      margin-top: 18px;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 55px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .fact {
+      padding: 25px 15px 25px 0;
+    }
+
+    .fact + .fact {
+      padding-left: 25px;
+      border-left: 1px solid var(--line);
+    }
+
+    .fact-number {
+      color: var(--green);
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .fact-label {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      border-top: 1px solid var(--line);
+    }
+
+    .service {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      align-items: center;
+      gap: 30px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .service-number {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .service h3 {
+      font-size: 24px;
+      letter-spacing: -0.8px;
+    }
+
+    .service p {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .service-arrow {
+      color: var(--green);
+      font-size: 22px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      padding-bottom: 120px;
+    }
+
+    .contact-box {
+      position: relative;
+      padding: 65px;
+      border-radius: 28px;
+      background: var(--green);
+      color: #e9eee9;
+      overflow: hidden;
+    }
+
+    .contact-box::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -80px;
+      top: -100px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 50%;
+    }
+
+    .contact-label {
+      position: relative;
+      z-index: 2;
+      color: #aac1ba;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .contact h2 {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+      margin-top: 12px;
+      font-size: clamp(40px, 6vw, 70px);
+    }
+
+    .contact-button {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      margin-top: 32px;
+      padding: 14px 22px;
+      border-radius: 10px;
+      background: #dce6e0;
+      color: var(--green-dark);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 25px 0 35px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      header {
+        padding: 20px 0;
+      }
+
+      nav {
+        gap: 15px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 65px 0 75px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      h1 {
+        font-size: clamp(48px, 14vw, 72px);
+        letter-spacing: -3px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .hero-visual {
+        min-height: 300px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .section-header {
+        display: block;
+      }
+
+      .section-note {
+        margin-top: 20px;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .project.large {
+        grid-column: auto;
+      }
+
+      .project,
+      .project.large {
+        min-height: 390px;
+      }
+
+      .project-preview,
+      .project.large .project-preview {
+        width: 88%;
+        height: 235px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .facts {
+        grid-template-columns: 1fr;
+      }
+
+      .fact + .fact {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid var(--line);
+      }
+
+      .service {
+        grid-template-columns: 45px 1fr 20px;
+        gap: 10px;
+      }
+
+      .service h3 {
+        font-size: 19px;
+      }
+
+      .service p {
+        font-size: 13px;
+      }
+
+      .contact-box {
+        padding: 45px 28px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        gap: 20px;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-<div class="container">
+  <header>
+    <div class="container">
+      <div class="nav">
 
-    <!-- HEADER -->
-
-    <header>
+        <a href="#" class="logo">
+          Web<span>Craft</span><i class="logo-mark"></i>
+        </a>
 
         <nav>
-
-            <a href="#" class="logo">
-                Web<span>Craft</span>
-            </a>
-
-            <div class="nav-links">
-
-                <a href="#projects">Работы</a>
-
-                <a href="#about">Обо мне</a>
-
-                <a href="#services">Услуги</a>
-
-                <a href="#contact">Контакты</a>
-
-            </div>
-
+          <a href="#projects">Работы</a>
+          <a href="#about">Обо мне</a>
+          <a href="#services">Услуги</a>
+          <a href="#contact">Контакты</a>
         </nav>
 
-    </header>
+      </div>
+    </div>
+  </header>
 
+
+  <main>
 
     <!-- HERO -->
 
-    <main>
+    <section class="hero">
+      <div class="container">
 
-        <section class="hero" style="border: none;">
+        <div class="hero-grid">
 
-            <div class="small-label">
-                Веб-разработка
+          <div>
+
+            <div class="eyebrow">
+              <span class="eyebrow-line"></span>
+              Веб-разработка
             </div>
 
             <h1>
-                Делаю сайты,
-                которые приятно
-                <span class="accent">открывать.</span>
+              Делаю сайты,<br>
+              которые <span>приятно</span><br>
+              открывать.
             </h1>
 
-            <p class="hero-text">
-                Создаю простые и современные сайты и лендинги
-                для небольших бизнесов, специалистов и личных проектов.
+            <p class="hero-description">
+              Создаю простые и современные сайты и лендинги
+              для небольших бизнесов, специалистов и личных проектов.
             </p>
 
-            <div class="hero-buttons">
+            <div class="hero-actions">
+              <a href="#projects" class="button">
+                Посмотреть работы
+              </a>
 
-                <a href="#projects" class="button button-dark">
-                    Посмотреть работы
-                </a>
+              <a href="#contact" class="hero-link">
+                Связаться →
+              </a>
+            </div>
 
-                <a href="#contact" class="button button-light">
-                    Связаться
-                </a>
+          </div>
+
+
+          <div class="hero-visual">
+
+            <div class="visual-window">
+
+              <div class="window-top">
+
+                <div class="window-dots">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <div class="window-number">
+                  01 / WEBSITE
+                </div>
+
+              </div>
+
+              <div class="window-content">
+
+                <div class="window-small"></div>
+
+                <div class="window-title">
+                  Simple.<br>
+                  Clear.<br>
+                  Useful.
+                </div>
+
+                <div class="window-line"></div>
+
+              </div>
 
             </div>
 
-        </section>
+          </div>
 
+        </div>
 
-        <!-- PROJECTS -->
+      </div>
+    </section>
 
-        <section id="projects">
 
-            <div class="section-top">
+    <!-- PROJECTS -->
 
-                <div>
+    <section id="projects">
 
-                    <div class="section-label">
-                        Portfolio
-                    </div>
+      <div class="container">
 
-                    <h2>
-                        Что уже сделано
-                    </h2>
+        <div class="section-header">
 
-                </div>
-
-                <p class="section-description">
-                    Несколько концептов, которые я собрала,
-                    чтобы показать свой подход к дизайну и разработке.
-                </p>
-
-            </div>
-
-
-            <div class="projects">
-
-
-                <!-- PROJECT 01 -->
-
-                <article class="project">
-
-                    <div class="project-number">
-                        01 / 03
-                    </div>
-
-                    <div class="project-content">
-
-                        <h3>
-                            Noir Barbershop
-                        </h3>
-
-                        <p>
-                            Концепт сайта для современного барбершопа.
-                            Сделан с акцентом на атмосферу, услуги
-                            и удобную подачу информации.
-                        </p>
-
-                        <a
-                            href="projects/barbershop.html"
-                            class="project-link"
-                        >
-                            Смотреть проект
-                            <span>→</span>
-                        </a>
-
-                    </div>
-
-                    <div class="project-visual barbershop"></div>
-
-                </article>
-
-
-                <!-- PROJECT 02 -->
-
-                <article class="project">
-
-                    <div class="project-number">
-                        02 / 03
-                    </div>
-
-                    <div class="project-content">
-
-                        <h3>
-                            Vita Nutrition
-                        </h3>
-
-                        <p>
-                            Спокойный и чистый лендинг для специалиста.
-                            Основная задача — показать услуги
-                            и вызвать доверие.
-                        </p>
-
-                        <a
-                            href="projects/nutrition.html"
-                            class="project-link"
-                        >
-                            Смотреть проект
-                            <span>→</span>
-                        </a>
-
-                    </div>
-
-                    <div class="project-visual nutrition"></div>
-
-                </article>
-
-
-                <!-- PROJECT 03 -->
-
-                <article class="project">
-
-                    <div class="project-number">
-                        03 / 03
-                    </div>
-
-                    <div class="project-content">
-
-                        <h3>
-                            Концепт для малого бизнеса
-                        </h3>
-
-                        <p>
-                            Ещё один демонстрационный проект —
-                            пример того, как можно подать услугу
-                            через простой одностраничный сайт.
-                        </p>
-
-                        <a
-                            href="projects/telegram-bot.html"
-                            class="project-link"
-                        >
-                            Смотреть проект
-                            <span>→</span>
-                        </a>
-
-                    </div>
-
-                    <div class="project-visual third-project"></div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- ABOUT -->
-
-        <section id="about">
-
-            <div class="section-top">
-
-                <div>
-
-                    <div class="section-label">
-                        About
-                    </div>
-
-                    <h2>
-                        Немного обо мне
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-            <div class="about">
-
-                <div class="about-text">
-
-                    <p>
-                        Я начинающий веб-разработчик и сейчас
-                        развиваюсь в создании сайтов и лендингов.
-                    </p>
-
-                    <p>
-                        Мне нравится делать вещи простыми:
-                        понятная структура, аккуратный дизайн
-                        и нормальная работа на телефоне.
-                    </p>
-
-                    <p>
-                        Каждый проект стараюсь сначала понять,
-                        а уже потом собирать сам сайт.
-                    </p>
-
-                </div>
-
-
-                <div class="about-note">
-
-                    <strong>
-                        Без лишнего.
-                    </strong>
-
-                    <p>
-                        Не перегружаю сайты сложными эффектами,
-                        если они не нужны. Главное — чтобы человеку
-                        было понятно, куда нажать и что делать дальше.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- SERVICES -->
-
-        <section id="services">
-
-            <div class="section-top">
-
-                <div>
-
-                    <div class="section-label">
-                        Services
-                    </div>
-
-                    <h2>
-                        Что могу сделать
-                    </h2>
-
-                </div>
-
-                <p class="section-description">
-                    На данном этапе беру небольшие и понятные
-                    задачи по созданию сайтов.
-                </p>
-
-            </div>
-
-
-            <div class="services">
-
-
-                <div class="service">
-
-                    <div class="service-number">
-                        01
-                    </div>
-
-                    <h3>
-                        Лендинг
-                    </h3>
-
-                    <p>
-                        Одностраничный сайт для услуги,
-                        специалиста, рекламы или небольшого проекта.
-                    </p>
-
-                </div>
-
-
-                <div class="service">
-
-                    <div class="service-number">
-                        02
-                    </div>
-
-                    <h3>
-                        Сайт для бизнеса
-                    </h3>
-
-                    <p>
-                        Небольшой сайт с информацией о компании,
-                        услугах, преимуществах и контактах.
-                    </p>
-
-                </div>
-
-
-                <div class="service">
-
-                    <div class="service-number">
-                        03
-                    </div>
-
-                    <h3>
-                        Адаптация
-                    </h3>
-
-                    <p>
-                        Делаю так, чтобы сайт нормально выглядел
-                        и работал не только на компьютере,
-                        но и на телефоне.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-        <!-- CONTACT -->
-
-        <section class="contact" id="contact">
-
+          <div>
             <div class="section-label">
-                Contact
+              Избранные работы
             </div>
 
             <h2>
-                Есть идея для сайта?
+              Проекты
             </h2>
+          </div>
+
+          <p class="section-note">
+            Небольшие концепты сайтов,
+            собранные для портфолио.
+          </p>
+
+        </div>
+
+
+        <div class="projects">
+
+
+          <!-- PROJECT 01 -->
+
+          <a href="projects/barbershop.html" class="project large">
+
+            <div class="project-info">
+
+              <div class="project-number">
+                01 — CONCEPT
+              </div>
+
+              <h3>
+                Noir Barbershop
+              </h3>
+
+              <p>
+                Сайт для современного барбершопа
+                с акцентом на атмосферу и запись.
+              </p>
+
+            </div>
+
+
+            <div class="project-preview">
+
+              <div class="preview-top"></div>
+
+              <div class="preview-body">
+
+                <div>
+                  <div class="preview-title"></div>
+                  <div class="preview-text"></div>
+                  <div class="preview-footer"></div>
+                </div>
+
+                <div class="preview-box dark"></div>
+
+              </div>
+
+            </div>
+
+          </a>
+
+
+          <!-- PROJECT 02 -->
+
+          <a href="projects/nutrition.html" class="project">
+
+            <div class="project-info">
+
+              <div class="project-number">
+                02 — CONCEPT
+              </div>
+
+              <h3>
+                Vita Nutrition
+              </h3>
+
+              <p>
+                Спокойный сайт специалиста
+                по питанию.
+              </p>
+
+            </div>
+
+
+            <div class="project-preview">
+
+              <div class="preview-top"></div>
+
+              <div class="preview-body">
+
+                <div>
+                  <div class="preview-title"></div>
+                  <div class="preview-text"></div>
+                  <div class="preview-footer"></div>
+                </div>
+
+                <div class="preview-box"></div>
+
+              </div>
+
+            </div>
+
+          </a>
+
+
+          <!-- PROJECT 03 -->
+
+          <div class="project">
+
+            <div class="project-info">
+
+              <div class="project-number">
+                03 — CONCEPT
+              </div>
+
+              <h3>
+                Сайт для бизнеса
+              </h3>
+
+              <p>
+                Концепт небольшой страницы
+                для локального бизнеса.
+              </p>
+
+            </div>
+
+
+            <div class="project-preview">
+
+              <div class="preview-top"></div>
+
+              <div class="preview-body">
+
+                <div>
+                  <div class="preview-title"></div>
+                  <div class="preview-text"></div>
+                  <div class="preview-footer"></div>
+                </div>
+
+                <div class="preview-box dark"></div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="section-label">
+          Немного обо мне
+        </div>
+
+
+        <div class="about-grid">
+
+          <div class="about-big">
+            Мне нравится делать сайты
+            простыми, понятными
+            и аккуратными.
+          </div>
+
+
+          <div class="about-text">
 
             <p>
-                Напиши мне. Расскажешь, что нужно сделать,
-                а дальше уже вместе разберёмся с задачей.
+              Я начинающий веб-разработчик и сейчас
+              развиваюсь именно в создании сайтов
+              и лендингов.
             </p>
 
-            <!-- ЗАМЕНИ USERNAME НА СВОЙ TELEGRAM -->
+            <p>
+              Мне важно, чтобы сайт хорошо выглядел
+              не только на компьютере, но и на телефоне,
+              а пользователь сразу понимал,
+              куда нажать и что здесь предлагают.
+            </p>
 
-            <a
-                href="https://t.me/USERNAME"
-                class="button button-dark"
-            >
-                Написать в Telegram →
-            </a>
+          </div>
 
-        </section>
-
-    </main>
+        </div>
 
 
-    <!-- FOOTER -->
+        <div class="facts">
 
-    <footer>
+          <div class="fact">
+            <div class="fact-number">01</div>
+            <div class="fact-label">Сайты и лендинги</div>
+          </div>
 
-        <span>
-            © 2026 WebCraft
-        </span>
+          <div class="fact">
+            <div class="fact-number">02</div>
+            <div class="fact-label">Адаптация под мобильные</div>
+          </div>
 
-        <span>
-            Сайты и лендинги
-        </span>
+          <div class="fact">
+            <div class="fact-number">03</div>
+            <div class="fact-label">Понятная структура</div>
+          </div>
 
-    </footer>
+        </div>
 
-</div>
+      </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section id="services">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div>
+            <div class="section-label">
+              Что могу сделать
+            </div>
+
+            <h2>
+              Услуги
+            </h2>
+          </div>
+
+        </div>
+
+
+        <div class="services">
+
+          <div class="service">
+
+            <div class="service-number">
+              01
+            </div>
+
+            <div>
+              <h3>Лендинг</h3>
+              <p>
+                Одностраничный сайт под конкретную услугу,
+                продукт или специалиста.
+              </p>
+            </div>
+
+            <div class="service-arrow">
+              ↗
+            </div>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-number">
+              02
+            </div>
+
+            <div>
+              <h3>Сайт для бизнеса</h3>
+              <p>
+                Небольшой сайт с информацией
+                о компании, услугах и контактах.
+              </p>
+            </div>
+
+            <div class="service-arrow">
+              ↗
+            </div>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-number">
+              03
+            </div>
+
+            <div>
+              <h3>Адаптация</h3>
+              <p>
+                Корректное отображение сайта
+                на телефонах, планшетах и компьютерах.
+              </p>
+            </div>
+
+            <div class="service-arrow">
+              ↗
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="contact">
+
+      <div class="container">
+
+        <div class="contact-box">
+
+          <div class="contact-label">
+            Есть идея?
+          </div>
+
+          <h2>
+            Давайте сделаем
+            из неё сайт.
+          </h2>
+
+          <a
+            href="https://t.me/USERNAME"
+            target="_blank"
+            class="contact-button"
+          >
+            Написать в Telegram →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <div>
+          © 2026 WebCraft
+        </div>
+
+        <div>
+          Сайты и лендинги
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
 
 </body>
 </html>
