@@ -1,145 +1,969 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WebCraft — сайты, Telegram-боты и AI-автоматизация</title>
-<meta name="description" content="Разработка современных сайтов, лендингов, Telegram-ботов и AI-автоматизации для бизнеса.">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#08090d;--card:#11131a;--text:#f5f7fb;--muted:#9298a7;--line:#242834;--accent:#8b7cff}
-html{scroll-behavior:smooth}
-body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
-a{color:inherit;text-decoration:none}
-.container{width:min(1120px,calc(100% - 40px));margin:auto}
-nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
-.logo{font-weight:800;font-size:20px;letter-spacing:-.5px}.logo span{color:var(--accent)}
-.navlinks{display:flex;gap:26px;color:var(--muted);font-size:14px}
-.navlinks a:hover{color:#fff}
-.hero{padding:110px 0 90px;max-width:850px}
-.badge{display:inline-flex;padding:8px 12px;border:1px solid var(--line);border-radius:999px;color:#b7bdca;font-size:13px;background:#0d0f15;margin-bottom:24px}
-h1{font-size:clamp(48px,8vw,86px);line-height:.98;letter-spacing:-4px;margin-bottom:28px}
-.gradient{background:linear-gradient(90deg,#fff,#9d91ff);-webkit-background-clip:text;color:transparent}
-.hero p{font-size:20px;color:var(--muted);max-width:650px;margin-bottom:34px}
-.buttons{display:flex;gap:12px;flex-wrap:wrap}
-.btn{padding:14px 20px;border-radius:12px;font-weight:700;font-size:15px;border:1px solid var(--line)}
-.btn.primary{background:#fff;color:#08090d;border-color:#fff}.btn.secondary{color:#fff}
-section{padding:80px 0;border-top:1px solid var(--line)}
-.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:32px}
-.eyebrow{color:var(--accent);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
-h2{font-size:42px;letter-spacing:-2px}
-.section-head p{color:var(--muted);max-width:430px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;min-height:250px;transition:.2s}
-.card:hover{transform:translateY(-4px);border-color:#3b4050}
-.project{min-height:330px;display:flex;flex-direction:column;justify-content:space-between}
-.project .num{font-size:13px;color:var(--muted)}
-.project h3{font-size:28px;letter-spacing:-1px;margin:20px 0 8px}
-.project p{color:var(--muted);font-size:15px}
-.project a{margin-top:22px;display:inline-block;font-weight:700}
-.service h3{font-size:20px;margin:15px 0 8px}.service p{color:var(--muted)}
-.icon{font-size:25px}
-.cta{padding:90px 0 110px;text-align:center}
-.cta h2{font-size:clamp(38px,6vw,64px);max-width:700px;margin:0 auto 20px}
-.cta p{color:var(--muted);margin:0 auto 28px;max-width:520px}
-footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px;display:flex;justify-content:space-between}
-@media(max-width:760px){
- .navlinks{display:none}.hero{padding:75px 0 65px}h1{letter-spacing:-2.5px}
- .grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:12px}
- footer{display:block}footer span{display:block;margin-top:8px}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Веб-разработка — сайты и лендинги</title>
+
+    <meta
+        name="description"
+        content="Создаю современные сайты и лендинги для небольших бизнесов, специалистов и проектов."
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #f4f1eb;
+            --text: #171717;
+            --muted: #77736c;
+            --card: #ffffff;
+            --border: #dedad2;
+            --accent: #ff6847;
+            --dark: #171717;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            padding-top: 24px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 0;
+        }
+
+        .logo {
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .nav-links a {
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+
+            padding: 120px 0 110px;
+
+            max-width: 900px;
+        }
+
+        .small-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            margin-bottom: 25px;
+
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .small-label::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: clamp(48px, 7vw, 82px);
+            line-height: 0.98;
+            letter-spacing: -4px;
+
+            max-width: 900px;
+
+            margin-bottom: 30px;
+        }
+
+        .accent {
+            color: var(--accent);
+        }
+
+        .hero-text {
+            max-width: 600px;
+
+            font-size: 19px;
+            color: var(--muted);
+
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 14px 20px;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-dark {
+            background: var(--dark);
+            color: white;
+        }
+
+        .button-light {
+            border: 1px solid var(--border);
+            background: transparent;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 95px 0;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .section-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            gap: 30px;
+
+            margin-bottom: 45px;
+        }
+
+        .section-label {
+            color: var(--accent);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+
+            margin-bottom: 9px;
+        }
+
+        h2 {
+            font-size: clamp(34px, 5vw, 52px);
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        .section-description {
+            max-width: 420px;
+
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .project {
+            position: relative;
+
+            overflow: hidden;
+
+            min-height: 390px;
+
+            padding: 30px;
+
+            border: 1px solid var(--border);
+            border-radius: 18px;
+
+            background: var(--card);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 18px 45px rgba(30, 25, 20, 0.08);
+        }
+
+        .project:nth-child(3) {
+            grid-column: span 2;
+            min-height: 330px;
+        }
+
+        .project-number {
+            color: #99948b;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .project-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .project h3 {
+            font-size: 30px;
+            letter-spacing: -1px;
+
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            max-width: 470px;
+
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            margin-top: 22px;
+
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .project-link span {
+            transition: transform 0.2s ease;
+        }
+
+        .project:hover .project-link span {
+            transform: translateX(4px);
+        }
+
+        /* decorative project areas */
+
+        .project-visual {
+            position: absolute;
+
+            right: -30px;
+            bottom: -35px;
+
+            width: 55%;
+            height: 58%;
+
+            border-radius: 18px 0 0 0;
+
+            transform: rotate(-4deg);
+
+            opacity: 0.9;
+        }
+
+        .barbershop {
+            background:
+                linear-gradient(
+                    135deg,
+                    #191919,
+                    #4c4038
+                );
+        }
+
+        .nutrition {
+            background:
+                linear-gradient(
+                    135deg,
+                    #dce6d7,
+                    #9db29a
+                );
+        }
+
+        .third-project {
+            background:
+                linear-gradient(
+                    135deg,
+                    #e7d9ca,
+                    #c49e7d
+                );
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+        }
+
+        .about-text {
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        .about-text p + p {
+            margin-top: 18px;
+        }
+
+        .about-note {
+            padding: 28px;
+
+            border-radius: 16px;
+
+            background: var(--dark);
+            color: white;
+        }
+
+        .about-note strong {
+            display: block;
+
+            font-size: 22px;
+
+            margin-bottom: 10px;
+        }
+
+        .about-note p {
+            color: #bdbdbd;
+            font-size: 14px;
+        }
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .service {
+            padding: 28px;
+
+            background: transparent;
+
+            border: 1px solid var(--border);
+            border-radius: 15px;
+        }
+
+        .service-number {
+            color: var(--accent);
+
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .service h3 {
+            font-size: 21px;
+
+            margin: 28px 0 10px;
+        }
+
+        .service p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            padding: 110px 0;
+
+            text-align: center;
+        }
+
+        .contact h2 {
+            max-width: 700px;
+
+            margin: 0 auto 20px;
+        }
+
+        .contact p {
+            max-width: 520px;
+
+            margin: 0 auto 30px;
+
+            color: var(--muted);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 25px 0;
+
+            border-top: 1px solid var(--border);
+
+            display: flex;
+            justify-content: space-between;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 760px) {
+
+            .container {
+                width: min(100% - 28px, 1100px);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 80px 0 75px;
+            }
+
+            h1 {
+                font-size: 48px;
+                letter-spacing: -2.5px;
+            }
+
+            .hero-text {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .section-top {
+                display: block;
+            }
+
+            .section-description {
+                margin-top: 15px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .project,
+            .project:nth-child(3) {
+                grid-column: span 1;
+
+                min-height: 350px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
 </head>
+
+
 <body>
+
 <div class="container">
-<nav>
-  <a class="logo" href="#">Nothing<span>Craft</span></a>
-  <div class="navlinks">
-    <a href="#works">Работы</a><a href="#services">Услуги</a><a href="#contact">Контакты</a>
-  </div>
-</nav>
 
-<header class="hero">
-  <div class="badge">WEB • BOTS • AI AUTOMATION</div>
-  <h1>Сайты, которые <span class="gradient">работают на бизнес.</span></h1>
-  <p>Создаю современные сайты, лендинги и Telegram-ботов. Использую AI, чтобы быстрее превращать идеи в готовые цифровые продукты.</p>
-  <div class="buttons">
-    <a class="btn primary" href="#works">Смотреть работы</a>
-    <a class="btn secondary" href="#contact">Обсудить проект</a>
-  </div>
-</header>
+    <!-- HEADER -->
 
-<section id="works">
-  <div class="section-head">
-    <div><div class="eyebrow">Portfolio</div><h2>Избранные работы</h2></div>
-    <p>Концепты и демонстрационные проекты, показывающие разные стили и задачи.</p>
-  </div>
-  <div class="grid">
-    <article class="card project">
-      <div><div class="num">01 / BUSINESS</div><h3>Noir Barbershop</h3><p>Премиальный лендинг для барбершопа с акцентом на стиль и запись.</p></div>
-      <a href="projects/barbershop.html">Открыть проект →</a>
-    </article>
-    <article class="card project">
-      <div><div class="num">02 / EXPERT</div><h3>Vita Nutrition</h3><p>Чистый экспертный лендинг для нутрициолога и консультационных услуг.</p></div>
-      <a href="projects/nutrition.html">Открыть проект →</a>
-    </article>
-    <article class="card project">
-      <div><div class="num">03 / AUTOMATION</div><h3>FlowBot</h3><p>Landing page для Telegram-бота и автоматизации процессов бизнеса.</p></div>
-      <a href="projects/telegram-bot.html">Открыть проект →</a>
-    </article>
-  </div>
-</section>
+    <header>
 
-<section id="services">
-  <div class="section-head">
-    <div><div class="eyebrow">Services</div><h2>Что я делаю</h2></div>
-  </div>
-  <div class="grid">
-    <div class="card service"><div class="icon">◈</div><h3>Сайты и лендинги</h3><p>Современные страницы для услуг, экспертов, компаний и продуктов.</p></div>
-    <div class="card service"><div class="icon">◎</div><h3>Telegram-боты</h3><p>Боты для заявок, FAQ, автоматизации и взаимодействия с клиентами.</p></div>
-    <div class="card service"><div class="icon">✦</div><h3>AI-автоматизация</h3><p>Интеграции и сценарии, которые помогают бизнесу экономить время.</p></div>
-  </div>
-</section>
- <section>
-    <div class="section-head">
-        <div>
-            <div class="eyebrow">Process</div>
-            <h2>Как я работаю</h2>
-        </div>
-    </div>
+        <nav>
 
-    <div class="grid">
-        <div class="card service">
-            <div class="icon">01</div>
-            <h3>Обсуждение</h3>
-            <p>Изучаем задачу и определяем цели проекта.</p>
-        </div>
+            <a href="#" class="logo">
+                Web<span>Craft</span>
+            </a>
 
-        <div class="card service">
-            <div class="icon">02</div>
-            <h3>Разработка</h3>
-            <p>Создаю сайт или бота и показываю промежуточный результат.</p>
-        </div>
+            <div class="nav-links">
 
-        <div class="card service">
-            <div class="icon">03</div>
-            <h3>Запуск</h3>
-            <p>Публикация, передача доступов и поддержка.</p>
-        </div>
-    </div>
-</section>
+                <a href="#projects">Работы</a>
 
-<section class="cta" id="contact">
-  <div class="eyebrow">Let's work</div>
-  <h2>Есть идея для проекта?</h2>
-  <p>Расскажи, что нужно сделать — обсудим задачу и подберём подходящий вариант.</p>
-  <a class="btn primary" href="https://t.me/nnothingnessd">Написать в Telegram →</a>
-</section>
+                <a href="#about">Обо мне</a>
 
-<footer>
-  <span>© 2026 WebCraft</span>
-  <span>Сайты • Боты • AI</span>
-</footer>
+                <a href="#services">Услуги</a>
+
+                <a href="#contact">Контакты</a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <main>
+
+        <section class="hero" style="border: none;">
+
+            <div class="small-label">
+                Веб-разработка
+            </div>
+
+            <h1>
+                Делаю сайты,
+                которые приятно
+                <span class="accent">открывать.</span>
+            </h1>
+
+            <p class="hero-text">
+                Создаю простые и современные сайты и лендинги
+                для небольших бизнесов, специалистов и личных проектов.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="button button-dark">
+                    Посмотреть работы
+                </a>
+
+                <a href="#contact" class="button button-light">
+                    Связаться
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+
+        <section id="projects">
+
+            <div class="section-top">
+
+                <div>
+
+                    <div class="section-label">
+                        Portfolio
+                    </div>
+
+                    <h2>
+                        Что уже сделано
+                    </h2>
+
+                </div>
+
+                <p class="section-description">
+                    Несколько концептов, которые я собрала,
+                    чтобы показать свой подход к дизайну и разработке.
+                </p>
+
+            </div>
+
+
+            <div class="projects">
+
+
+                <!-- PROJECT 01 -->
+
+                <article class="project">
+
+                    <div class="project-number">
+                        01 / 03
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Noir Barbershop
+                        </h3>
+
+                        <p>
+                            Концепт сайта для современного барбершопа.
+                            Сделан с акцентом на атмосферу, услуги
+                            и удобную подачу информации.
+                        </p>
+
+                        <a
+                            href="projects/barbershop.html"
+                            class="project-link"
+                        >
+                            Смотреть проект
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                    <div class="project-visual barbershop"></div>
+
+                </article>
+
+
+                <!-- PROJECT 02 -->
+
+                <article class="project">
+
+                    <div class="project-number">
+                        02 / 03
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Vita Nutrition
+                        </h3>
+
+                        <p>
+                            Спокойный и чистый лендинг для специалиста.
+                            Основная задача — показать услуги
+                            и вызвать доверие.
+                        </p>
+
+                        <a
+                            href="projects/nutrition.html"
+                            class="project-link"
+                        >
+                            Смотреть проект
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                    <div class="project-visual nutrition"></div>
+
+                </article>
+
+
+                <!-- PROJECT 03 -->
+
+                <article class="project">
+
+                    <div class="project-number">
+                        03 / 03
+                    </div>
+
+                    <div class="project-content">
+
+                        <h3>
+                            Концепт для малого бизнеса
+                        </h3>
+
+                        <p>
+                            Ещё один демонстрационный проект —
+                            пример того, как можно подать услугу
+                            через простой одностраничный сайт.
+                        </p>
+
+                        <a
+                            href="projects/telegram-bot.html"
+                            class="project-link"
+                        >
+                            Смотреть проект
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                    <div class="project-visual third-project"></div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section id="about">
+
+            <div class="section-top">
+
+                <div>
+
+                    <div class="section-label">
+                        About
+                    </div>
+
+                    <h2>
+                        Немного обо мне
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="about">
+
+                <div class="about-text">
+
+                    <p>
+                        Я начинающий веб-разработчик и сейчас
+                        развиваюсь в создании сайтов и лендингов.
+                    </p>
+
+                    <p>
+                        Мне нравится делать вещи простыми:
+                        понятная структура, аккуратный дизайн
+                        и нормальная работа на телефоне.
+                    </p>
+
+                    <p>
+                        Каждый проект стараюсь сначала понять,
+                        а уже потом собирать сам сайт.
+                    </p>
+
+                </div>
+
+
+                <div class="about-note">
+
+                    <strong>
+                        Без лишнего.
+                    </strong>
+
+                    <p>
+                        Не перегружаю сайты сложными эффектами,
+                        если они не нужны. Главное — чтобы человеку
+                        было понятно, куда нажать и что делать дальше.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SERVICES -->
+
+        <section id="services">
+
+            <div class="section-top">
+
+                <div>
+
+                    <div class="section-label">
+                        Services
+                    </div>
+
+                    <h2>
+                        Что могу сделать
+                    </h2>
+
+                </div>
+
+                <p class="section-description">
+                    На данном этапе беру небольшие и понятные
+                    задачи по созданию сайтов.
+                </p>
+
+            </div>
+
+
+            <div class="services">
+
+
+                <div class="service">
+
+                    <div class="service-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Лендинг
+                    </h3>
+
+                    <p>
+                        Одностраничный сайт для услуги,
+                        специалиста, рекламы или небольшого проекта.
+                    </p>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Сайт для бизнеса
+                    </h3>
+
+                    <p>
+                        Небольшой сайт с информацией о компании,
+                        услугах, преимуществах и контактах.
+                    </p>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Адаптация
+                    </h3>
+
+                    <p>
+                        Делаю так, чтобы сайт нормально выглядел
+                        и работал не только на компьютере,
+                        но и на телефоне.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section class="contact" id="contact">
+
+            <div class="section-label">
+                Contact
+            </div>
+
+            <h2>
+                Есть идея для сайта?
+            </h2>
+
+            <p>
+                Напиши мне. Расскажешь, что нужно сделать,
+                а дальше уже вместе разберёмся с задачей.
+            </p>
+
+            <!-- ЗАМЕНИ USERNAME НА СВОЙ TELEGRAM -->
+
+            <a
+                href="https://t.me/USERNAME"
+                class="button button-dark"
+            >
+                Написать в Telegram →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span>
+            © 2026 WebCraft
+        </span>
+
+        <span>
+            Сайты и лендинги
+        </span>
+
+    </footer>
+
 </div>
+
 </body>
 </html>
