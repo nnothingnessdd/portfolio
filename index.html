@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebCraft — сайты, Telegram-боты и AI-автоматизация</title>
+<meta name="description" content="Разработка современных сайтов, лендингов, Telegram-ботов и AI-автоматизации для бизнеса.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#08090d;--card:#11131a;--text:#f5f7fb;--muted:#9298a7;--line:#242834;--accent:#8b7cff}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,calc(100% - 40px));margin:auto}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.logo{font-weight:800;font-size:20px;letter-spacing:-.5px}.logo span{color:var(--accent)}
+.navlinks{display:flex;gap:26px;color:var(--muted);font-size:14px}
+.navlinks a:hover{color:#fff}
+.hero{padding:110px 0 90px;max-width:850px}
+.badge{display:inline-flex;padding:8px 12px;border:1px solid var(--line);border-radius:999px;color:#b7bdca;font-size:13px;background:#0d0f15;margin-bottom:24px}
+h1{font-size:clamp(48px,8vw,86px);line-height:.98;letter-spacing:-4px;margin-bottom:28px}
+.gradient{background:linear-gradient(90deg,#fff,#9d91ff);-webkit-background-clip:text;color:transparent}
+.hero p{font-size:20px;color:var(--muted);max-width:650px;margin-bottom:34px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:14px 20px;border-radius:12px;font-weight:700;font-size:15px;border:1px solid var(--line)}
+.btn.primary{background:#fff;color:#08090d;border-color:#fff}.btn.secondary{color:#fff}
+section{padding:80px 0;border-top:1px solid var(--line)}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:32px}
+.eyebrow{color:var(--accent);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
+h2{font-size:42px;letter-spacing:-2px}
+.section-head p{color:var(--muted);max-width:430px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;min-height:250px;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#3b4050}
+.project{min-height:330px;display:flex;flex-direction:column;justify-content:space-between}
+.project .num{font-size:13px;color:var(--muted)}
+.project h3{font-size:28px;letter-spacing:-1px;margin:20px 0 8px}
+.project p{color:var(--muted);font-size:15px}
+.project a{margin-top:22px;display:inline-block;font-weight:700}
+.service h3{font-size:20px;margin:15px 0 8px}.service p{color:var(--muted)}
+.icon{font-size:25px}
+.cta{padding:90px 0 110px;text-align:center}
+.cta h2{font-size:clamp(38px,6vw,64px);max-width:700px;margin:0 auto 20px}
+.cta p{color:var(--muted);margin:0 auto 28px;max-width:520px}
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px;display:flex;justify-content:space-between}
+@media(max-width:760px){
+ .navlinks{display:none}.hero{padding:75px 0 65px}h1{letter-spacing:-2.5px}
+ .grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:12px}
+ footer{display:block}footer span{display:block;margin-top:8px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<nav>
+  <a class="logo" href="#">Web<span>Craft</span></a>
+  <div class="navlinks">
+    <a href="#works">Работы</a><a href="#services">Услуги</a><a href="#contact">Контакты</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="badge">WEB • BOTS • AI AUTOMATION</div>
+  <h1>Сайты, которые <span class="gradient">работают на бизнес.</span></h1>
+  <p>Создаю современные сайты, лендинги и Telegram-ботов. Использую AI, чтобы быстрее превращать идеи в готовые цифровые продукты.</p>
+  <div class="buttons">
+    <a class="btn primary" href="#works">Смотреть работы</a>
+    <a class="btn secondary" href="#contact">Обсудить проект</a>
+  </div>
+</header>
+
+<section id="works">
+  <div class="section-head">
+    <div><div class="eyebrow">Portfolio</div><h2>Избранные работы</h2></div>
+    <p>Концепты и демонстрационные проекты, показывающие разные стили и задачи.</p>
+  </div>
+  <div class="grid">
+    <article class="card project">
+      <div><div class="num">01 / BUSINESS</div><h3>Noir Barbershop</h3><p>Премиальный лендинг для барбершопа с акцентом на стиль и запись.</p></div>
+      <a href="projects/barbershop.html">Открыть проект →</a>
+    </article>
+    <article class="card project">
+      <div><div class="num">02 / EXPERT</div><h3>Vita Nutrition</h3><p>Чистый экспертный лендинг для нутрициолога и консультационных услуг.</p></div>
+      <a href="projects/nutrition.html">Открыть проект →</a>
+    </article>
+    <article class="card project">
+      <div><div class="num">03 / AUTOMATION</div><h3>FlowBot</h3><p>Landing page для Telegram-бота и автоматизации процессов бизнеса.</p></div>
+      <a href="projects/telegram-bot.html">Открыть проект →</a>
+    </article>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-head">
+    <div><div class="eyebrow">Services</div><h2>Что я делаю</h2></div>
+  </div>
+  <div class="grid">
+    <div class="card service"><div class="icon">◈</div><h3>Сайты и лендинги</h3><p>Современные страницы для услуг, экспертов, компаний и продуктов.</p></div>
+    <div class="card service"><div class="icon">◎</div><h3>Telegram-боты</h3><p>Боты для заявок, FAQ, автоматизации и взаимодействия с клиентами.</p></div>
+    <div class="card service"><div class="icon">✦</div><h3>AI-автоматизация</h3><p>Интеграции и сценарии, которые помогают бизнесу экономить время.</p></div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="eyebrow">Let's work</div>
+  <h2>Есть идея для проекта?</h2>
+  <p>Расскажи, что нужно сделать — обсудим задачу и подберём подходящий вариант.</p>
+  <a class="btn primary" href="https://t.me/USERNAME">Написать в Telegram →</a>
+</section>
+
+<footer>
+  <span>© 2026 WebCraft</span>
+  <span>Сайты • Боты • AI</span>
+</footer>
+</div>
+</body>
+</html>
