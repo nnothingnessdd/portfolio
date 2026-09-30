@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Запись — NOIR</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <a class="logo" href="piercing.html">NOIR</a>
+
+    <nav>
+        <a href="piercing.html">Главная</a>
+        <a href="services.html">Услуги</a>
+        <a href="jewelry.html">Украшения</a>
+        <a href="care.html">Уход</a>
+        <a href="about.html">О студии</a>
+        <a class="active" href="booking.html">Запись</a>
+    </nav>
+
+    <div class="menu">☰</div>
+</header>
+
+<main class="page">
+
+    <div class="page-head reveal">
+
+        <div class="label">Booking</div>
+
+        <h1>Запись</h1>
+
+        <p>
+            Оставь заявку, и мы обсудим желаемый прокол,
+            украшение и удобное время.
+        </p>
+
+    </div>
+
+    <form class="form reveal" id="booking-form">
+
+        <div class="field">
+
+            <label>ИМЯ</label>
+
+            <input
+                type="text"
+                placeholder="Как к тебе обращаться?"
+                required
+            >
+
+        </div>
+
+        <div class="field">
+
+            <label>КОНТАКТ</label>
+
+            <input
+                type="text"
+                placeholder="Telegram или телефон"
+                required
+            >
+
+        </div>
+
+        <div class="field">
+
+            <label>УСЛУГА</label>
+
+            <select required>
+
+                <option value="">
+                    Выбери услугу
+                </option>
+
+                <option>
+                    Мочка
+                </option>
+
+                <option>
+                    Helix
+                </option>
+
+                <option>
+                    Conch
+                </option>
+
+                <option>
+                    Tragus
+                </option>
+
+                <option>
+                    Нос
+                </option>
+
+                <option>
+                    Другое
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="field">
+
+            <label>ЖЕЛАЕМАЯ ДАТА</label>
+
+            <input type="date">
+
+        </div>
+
+        <div class="field">
+
+            <label>КОММЕНТАРИЙ</label>
+
+            <textarea
+                placeholder="Расскажи немного о том, что хочешь сделать"
+            ></textarea>
+
+        </div>
+
+        <button
+            class="button"
+            type="submit"
+        >
+            Отправить заявку
+        </button>
+
+        <div
+            class="notice"
+            id="form-message"
+            style="display:none"
+        ></div>
+
+    </form>
+
+</main>
+
+<footer>
+    <span>NOIR — Piercing Studio</span>
+    <span>© 2026</span>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
