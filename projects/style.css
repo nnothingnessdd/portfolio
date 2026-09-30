@@ -1,29 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-/* =========================
-   NOIR — COLOR SYSTEM
-========================= */
-
 :root{
-    --black:#090708;
-    --black-2:#0d090b;
-    --black-3:#120b0e;
+    --black:#080708;
+    --surface:#0d0a0b;
+    --surface-2:#110c0e;
 
-    --wine:#2d0712;
-    --burgundy:#4a0b1b;
-    --burgundy-light:#68152a;
+    --wine:#300814;
+    --burgundy:#500d20;
+    --burgundy-light:#731c36;
 
-    --text:#eee8e8;
-    --muted:#aaa0a3;
-    --muted-dark:#756b6e;
+    --text:#eee9e9;
+    --muted:#aaa1a4;
+    --muted-dark:#756c70;
 
-    --line:rgba(238,232,232,.08);
-    --line-strong:rgba(238,232,232,.13);
+    --line:rgba(255,255,255,.075);
+    --line-hover:rgba(180,75,103,.35);
 }
-
-/* =========================
-   RESET
-========================= */
 
 *{
     box-sizing:border-box;
@@ -54,34 +46,20 @@ img{
     max-width:100%;
 }
 
-button,
-input,
-select,
-textarea{
-    font:inherit;
-}
-
-/* =========================
-   TYPOGRAPHY
-========================= */
-
-h1,
-h2,
-h3{
+h1,h2,h3{
     font-family:"Cormorant Garamond",serif;
     font-weight:500;
 }
 
 h1{
-    font-size:clamp(78px,12vw,155px);
+    font-size:clamp(76px,12vw,150px);
     line-height:.78;
     letter-spacing:-3px;
 }
 
 h2{
-    font-size:clamp(52px,7vw,88px);
+    font-size:clamp(50px,7vw,88px);
     line-height:.9;
-    letter-spacing:-1px;
 }
 
 h3{
@@ -91,11 +69,12 @@ h3{
 
 .eyebrow,
 .label{
-    color:#b44b67;
+    color:#b44d68;
     font-size:10px;
     letter-spacing:4px;
     text-transform:uppercase;
 }
+
 
 /* =========================
    HEADER
@@ -108,7 +87,7 @@ header{
     width:100%;
     z-index:1000;
 
-    padding:24px 6%;
+    padding:23px 6%;
 
     display:flex;
     align-items:center;
@@ -116,8 +95,8 @@ header{
 
     background:linear-gradient(
         to bottom,
-        rgba(9,7,8,.96),
-        rgba(9,7,8,.65),
+        rgba(8,7,8,.96),
+        rgba(8,7,8,.68),
         transparent
     );
 
@@ -125,7 +104,7 @@ header{
 }
 
 header.scrolled{
-    background:rgba(9,7,8,.94);
+    background:rgba(8,7,8,.94);
     backdrop-filter:blur(16px);
     border-bottom:1px solid var(--line);
 }
@@ -134,7 +113,6 @@ header.scrolled{
     font-family:"Cormorant Garamond",serif;
     font-size:30px;
     letter-spacing:7px;
-    white-space:nowrap;
 }
 
 nav{
@@ -146,7 +124,7 @@ nav{
 nav a{
     position:relative;
 
-    color:#cfc5c8;
+    color:#cfc7c9;
 
     font-size:10px;
     letter-spacing:2px;
@@ -164,12 +142,12 @@ nav a::after{
 
     position:absolute;
     left:0;
-    bottom:-8px;
+    bottom:-7px;
 
     width:0;
     height:1px;
 
-    background:#b44b67;
+    background:#b44d68;
 
     transition:.3s ease;
 }
@@ -183,8 +161,8 @@ nav a.active::after{
     display:none;
     font-size:24px;
     cursor:pointer;
-    color:#eee;
 }
+
 
 /* =========================
    HERO
@@ -205,27 +183,24 @@ nav a.active::after{
     background:var(--black);
 }
 
-/* Фотография пока остаётся здесь.
-   Потом заменим её на твою. */
-
 .hero::before{
     content:"";
 
     position:absolute;
-    inset:-4%;
+    inset:-5%;
 
     background:
         linear-gradient(
             90deg,
-            rgba(9,7,8,.96) 0%,
-            rgba(9,7,8,.72) 38%,
-            rgba(9,7,8,.25) 75%,
-            rgba(9,7,8,.45) 100%
+            rgba(8,7,8,.97) 0%,
+            rgba(8,7,8,.78) 37%,
+            rgba(8,7,8,.34) 72%,
+            rgba(8,7,8,.52) 100%
         ),
         linear-gradient(
             to top,
-            rgba(9,7,8,.98) 0%,
-            transparent 50%
+            rgba(8,7,8,1) 0%,
+            rgba(8,7,8,.05) 58%
         ),
         url("images/pexels-shliftik-7367854.jpg")
         center/cover no-repeat;
@@ -246,7 +221,7 @@ nav a.active::after{
     background:
         radial-gradient(
             circle at 78% 35%,
-            rgba(74,11,27,.20),
+            rgba(80,13,32,.18),
             transparent 32%
         );
 }
@@ -283,33 +258,24 @@ nav a.active::after{
 
     border:1px solid var(--burgundy-light);
 
-    color:#eee;
+    background:rgba(48,8,20,.25);
 
     font-size:10px;
     letter-spacing:3px;
     text-transform:uppercase;
-
-    background:rgba(45,7,18,.22);
 
     transition:.35s ease;
 }
 
 .button:hover{
     background:var(--burgundy);
-    border-color:var(--burgundy-light);
     transform:translateY(-3px);
 }
 
-/* =========================
-   FLOWER ACCENTS
-========================= */
 
-/*
-   Цветы не убираем.
-   Если в HTML есть декоративные элементы
-   .flower — они получают мягкое свечение,
-   а не яркий "розовый" вид.
-*/
+/* =========================
+   FLOWERS
+========================= */
 
 .flower{
     position:absolute;
@@ -317,11 +283,11 @@ nav a.active::after{
 
     pointer-events:none;
 
-    opacity:.34;
+    opacity:.32;
 
     filter:
-        saturate(.75)
         brightness(.55)
+        saturate(.72)
         contrast(1.05);
 
     mix-blend-mode:screen;
@@ -329,9 +295,6 @@ nav a.active::after{
     transition:opacity .5s ease;
 }
 
-.flower:hover{
-    opacity:.48;
-}
 
 /* =========================
    SECTIONS
@@ -350,9 +313,9 @@ nav a.active::after{
 .section:nth-child(even){
     background:
         radial-gradient(
-            circle at 85% 15%,
-            rgba(74,11,27,.12),
-            transparent 30%
+            circle at 82% 15%,
+            rgba(80,13,32,.10),
+            transparent 32%
         ),
         var(--black);
 }
@@ -361,16 +324,16 @@ nav a.active::after{
     background:
         radial-gradient(
             circle at 15% 30%,
-            rgba(74,11,27,.16),
+            rgba(80,13,32,.14),
             transparent 35%
         ),
-        var(--black-2);
+        var(--surface);
 }
 
 .page{
     min-height:100vh;
 
-    padding:175px 7% 110px;
+    padding:170px 7% 110px;
 
     background:var(--black);
 }
@@ -390,8 +353,9 @@ nav a.active::after{
     line-height:1.9;
 }
 
+
 /* =========================
-   GRID / CARDS
+   CARDS
 ========================= */
 
 .grid{
@@ -405,47 +369,43 @@ nav a.active::after{
 
     padding:35px;
 
-    background:var(--black-2);
+    background:var(--surface);
 
     border:1px solid var(--line);
 
-    transition:
-        transform .4s ease,
-        border-color .4s ease,
-        background .4s ease;
+    transition:.4s ease;
 }
 
 .card::before{
     content:"";
 
     position:absolute;
-    left:0;
     top:0;
+    left:0;
 
     width:35px;
     height:1px;
 
     background:var(--burgundy-light);
-
-    opacity:.7;
 }
 
 .card:hover{
     transform:translateY(-6px);
 
-    border-color:rgba(104,21,42,.5);
+    background:var(--surface-2);
 
-    background:var(--black-3);
+    border-color:var(--line-hover);
 }
 
 .card h3{
-    margin-bottom:16px;
+    margin-bottom:15px;
 }
 
 .card p{
     color:var(--muted);
     line-height:1.8;
 }
+
 
 /* =========================
    PRICE LIST
@@ -458,6 +418,7 @@ nav a.active::after{
 .price-row{
     display:grid;
     grid-template-columns:60px 1fr auto;
+
     gap:20px;
 
     align-items:center;
@@ -475,13 +436,13 @@ nav a.active::after{
     background:
         linear-gradient(
             90deg,
-            rgba(74,11,27,.14),
+            rgba(80,13,32,.13),
             transparent
         );
 }
 
 .number{
-    color:#8f4058;
+    color:#91445b;
     font-size:11px;
 }
 
@@ -491,8 +452,9 @@ nav a.active::after{
 }
 
 .price{
-    color:#c2b7ba;
+    color:#c2b8ba;
 }
+
 
 /* =========================
    PHOTOS
@@ -511,13 +473,8 @@ nav a.active::after{
 
     overflow:hidden;
 
-    background:var(--black-2);
+    background:var(--surface);
 }
-
-/*
-   Не даём фотографии выглядеть
-   как отдельная наклеенная карточка.
-*/
 
 .photo::after{
     content:"";
@@ -530,8 +487,8 @@ nav a.active::after{
     background:
         linear-gradient(
             to bottom,
-            transparent 55%,
-            rgba(9,7,8,.42)
+            transparent 48%,
+            rgba(8,7,8,.45)
         );
 }
 
@@ -541,14 +498,15 @@ nav a.active::after{
 
     object-fit:cover;
 
-    transform:scale(1.02);
+    transform:scale(1.025);
 
-    transition:transform 1s ease;
+    transition:1s ease;
 }
 
 .photo:hover img{
     transform:scale(1.07);
 }
+
 
 /* =========================
    INFO
@@ -571,6 +529,7 @@ nav a.active::after{
     line-height:2;
 }
 
+
 /* =========================
    STEPS
 ========================= */
@@ -583,7 +542,7 @@ nav a.active::after{
 .step{
     padding:27px 28px;
 
-    background:var(--black-2);
+    background:var(--surface);
 
     border:1px solid var(--line);
     border-left:2px solid var(--burgundy);
@@ -592,8 +551,7 @@ nav a.active::after{
 }
 
 .step:hover{
-    background:var(--black-3);
-    border-color:var(--line-strong);
+    background:var(--surface-2);
     border-left-color:var(--burgundy-light);
 }
 
@@ -606,6 +564,7 @@ nav a.active::after{
     color:var(--muted);
     line-height:1.7;
 }
+
 
 /* =========================
    FAQ
@@ -642,6 +601,7 @@ details p{
     line-height:1.8;
 }
 
+
 /* =========================
    FORM
 ========================= */
@@ -660,7 +620,7 @@ details p{
 
     margin-bottom:8px;
 
-    color:#bdb2b5;
+    color:#bdb3b5;
 
     font-size:10px;
     letter-spacing:1px;
@@ -673,7 +633,7 @@ details p{
 
     padding:16px 17px;
 
-    background:var(--black-2);
+    background:var(--surface);
 
     color:#fff;
 
@@ -689,9 +649,8 @@ details p{
 .field input:focus,
 .field select:focus,
 .field textarea:focus{
+    background:var(--surface-2);
     border-color:var(--burgundy-light);
-
-    background:var(--black-3);
 }
 
 .field textarea{
@@ -706,8 +665,8 @@ details p{
     background:
         linear-gradient(
             90deg,
-            rgba(74,11,27,.24),
-            rgba(18,11,14,.65)
+            rgba(80,13,32,.20),
+            rgba(17,12,14,.7)
         );
 
     border-left:2px solid var(--burgundy-light);
@@ -718,6 +677,7 @@ details p{
 
     font-size:13px;
 }
+
 
 /* =========================
    CTA
@@ -735,32 +695,10 @@ details p{
     background:
         radial-gradient(
             circle at center,
-            rgba(74,11,27,.32),
+            rgba(80,13,32,.25),
             transparent 58%
         ),
         var(--black);
-}
-
-.cta::before{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    pointer-events:none;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(104,21,42,.08),
-            transparent
-        );
-}
-
-.cta > *{
-    position:relative;
-    z-index:1;
 }
 
 .cta p{
@@ -772,6 +710,7 @@ details p{
 
     line-height:1.8;
 }
+
 
 /* =========================
    FOOTER
@@ -793,8 +732,9 @@ footer{
     font-size:11px;
 }
 
+
 /* =========================
-   ANIMATION
+   ANIMATIONS
 ========================= */
 
 .reveal{
@@ -833,6 +773,7 @@ footer{
     }
 }
 
+
 /* =========================
    TABLET
 ========================= */
@@ -856,6 +797,7 @@ footer{
     }
 }
 
+
 /* =========================
    MOBILE
 ========================= */
@@ -875,7 +817,6 @@ footer{
         display:none;
 
         position:absolute;
-
         top:68px;
         left:0;
 
@@ -888,7 +829,7 @@ footer{
 
         gap:21px;
 
-        background:rgba(9,7,8,.98);
+        background:rgba(8,7,8,.98);
 
         border-bottom:1px solid var(--line);
     }
@@ -905,27 +846,22 @@ footer{
         display:block;
     }
 
-    /* HERO */
-
     .hero{
         min-height:100svh;
 
-        padding:
-            0
-            24px
-            65px;
+        padding:0 24px 65px;
     }
 
     .hero::before{
         background:
             linear-gradient(
                 90deg,
-                rgba(9,7,8,.88),
-                rgba(9,7,8,.52)
+                rgba(8,7,8,.91),
+                rgba(8,7,8,.55)
             ),
             linear-gradient(
                 to top,
-                rgba(9,7,8,.98),
+                rgba(8,7,8,1),
                 transparent 60%
             ),
             url("images/pexels-shliftik-7367854.jpg")
@@ -933,16 +869,17 @@ footer{
     }
 
     h1{
-        font-size:clamp(72px,24vw,110px);
+        font-size:clamp(70px,23vw,105px);
         letter-spacing:-2px;
     }
 
     h2{
-        font-size:clamp(50px,16vw,76px);
+        font-size:clamp(49px,16vw,74px);
     }
 
     .hero p{
         max-width:390px;
+
         margin-top:27px;
 
         font-size:14px;
@@ -953,8 +890,6 @@ footer{
         width:100%;
         max-width:300px;
     }
-
-    /* SECTIONS */
 
     .page,
     .section{
@@ -969,12 +904,6 @@ footer{
         margin-bottom:55px;
     }
 
-    .page-head p{
-        margin-top:23px;
-    }
-
-    /* GRID */
-
     .grid{
         grid-template-columns:1fr;
         gap:12px;
@@ -984,13 +913,9 @@ footer{
         padding:28px;
     }
 
-    /* PRICE */
-
     .price-row{
         grid-template-columns:32px 1fr;
-
         gap:10px;
-
         padding:23px 0;
     }
 
@@ -1000,10 +925,7 @@ footer{
 
     .price{
         grid-column:2;
-        margin-top:-3px;
     }
-
-    /* PHOTOS */
 
     .photo-grid{
         grid-template-columns:1fr;
@@ -1014,32 +936,22 @@ footer{
         min-height:340px;
     }
 
-    /* INFO */
-
     .info{
         grid-template-columns:1fr;
         gap:45px;
     }
 
-    /* STEPS */
-
     .step{
         padding:23px;
     }
-
-    /* FAQ */
 
     summary{
         font-size:24px;
     }
 
-    /* CTA */
-
     .cta{
         padding:100px 24px;
     }
-
-    /* FOOTER */
 
     footer{
         padding:30px 24px;
@@ -1048,13 +960,12 @@ footer{
         gap:12px;
     }
 
-    /* FLOWERS */
-
     .flower{
-        opacity:.22;
+        opacity:.23;
         transform:scale(.75);
     }
 }
+
 
 /* =========================
    SMALL PHONES
